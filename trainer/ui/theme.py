@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+"""黑白极简主题（苹果风）。"""
+BG = "#000000"
+FG = "#ffffff"
+CARD = "#111111"
+CARD_ACTIVE = "#ffffff"
+CARD_ACTIVE_FG = "#000000"
+BORDER = "#2c2c2e"
+GRAY = "#8e8e93"
+SUBTLE = "#636366"
+SUCCESS = "#30d158"
+ERROR = "#ff453a"
