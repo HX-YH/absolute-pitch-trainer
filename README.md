@@ -5,8 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Offline](https://img.shields.io/badge/voice-offline-orange)
 
-简介：这是一个 Windows 桌面应用，用于培养绝对音准。
--使用方式：播放单音/和弦/音程/旋律，用户通过语音或文字反馈听到的音高，程序自动判断对错，并给出即时反馈与历史统计。
+简介：这是一个用于培养绝对音准的 Windows 桌面应用。<br>使用方式：播放单音/和弦/音程/旋律，用户通过语音或文字反馈听到的音高，程序自动判断对错，并给出即时反馈与历史统计。
 
 ## 功能特性
 
