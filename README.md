@@ -7,23 +7,23 @@
 
 **English** | [中文](#中文)
 
-This is a small Windows desktop app I built to practice absolute pitch, often called perfect pitch. It plays a note, a chord, an interval, or a short melody, and you tell it what you heard by typing or speaking. The app checks your answer and gives you instant feedback.
+Hi! This is a small Windows desktop app I built to practice absolute pitch. I play an instrument, and when I practice I often find myself checking a tuner to make sure I'm in tune. That takes my attention away from actually playing. I wanted to train my ears, so I could hear whether a note is in tune without staring at a screen. That's where this project came from.
 
-I'm still learning programming, so this is also a learning project. I tried to keep the code readable and the interface simple. It's not a commercial product, and there are probably still a few rough edges, but it does what I need it to do.
+It plays a note, a chord, an interval, or a short melody, and you tell it what you heard by typing or speaking. The app checks your answer and gives you instant feedback. It's not a commercial product. It's a learning project, and I used AI as a coding assistant along the way. I tried to keep the code readable and the interface simple.
 
 ## What it can do
 
 **Seven practice modes**
 
-- Easy: a reference A plus natural notes from the C major scale (1–7, no sharps or flats)
-- Normal: a reference A plus all 12 notes
-- Hard: a reference A plus chords built from natural notes (triads, power chords, seventh chords, or all of them)
+- Easy: natural notes from C major (C–B, no sharps or flats)
+- Normal: all 12 notes
+- Hard: chords built from natural notes (triads, power chords, seventh chords, or all of them)
 - Hell: no reference note, chromatic chords
 - Hell single note: no reference note, all 12 notes
 - Interval: listen to two notes and name the interval
 - Melody: listen to a short melody and write down the notes
 
-**Smart practice**
+**Human-friendly features**
 
 - Mistake notebook: wrong answers are saved automatically, and you can practice only those questions
 - Weak-spot stats: see which notes or chord types you miss most
@@ -56,11 +56,6 @@ I'm still learning programming, so this is also a learning project. I tried to k
 - Fully offline: Windows SAPI for speech output and Vosk for speech recognition (small English and Chinese models)
 - You can stop recording manually with the "■ Stop recording" button
 - If the models are missing, the app downloads them and shows progress
-
-**Interface**
-
-- Simple black-and-white look inspired by Apple's minimal style
-- Page transitions, number rolling, chart animation, and popup scaling
 
 ## Requirements
 
@@ -140,17 +135,6 @@ absolute-pitch-trainer/
 - Each mode keeps the latest 100 practice sessions, and older ones are removed automatically
 - Models live in the `models\` folder next to the project or the exe
 
-## FAQ
-
-**Why are there no sharps or flats in Easy mode?**
-Easy mode stays in C major and uses only the natural notes 1–7. It's meant to be the simplest starting point.
-
-**Why is the first voice input so slow?**
-The app needs to download the small English and Chinese Vosk models, about 80 MB in total. After that, voice input works offline.
-
-**What if I hear no sound?**
-The app tries `sounddevice + numpy` first and falls back to Windows `winsound` if needed. Check your default playback device and system volume.
-
 ## Contributing
 
 Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
@@ -168,19 +152,19 @@ This project is licensed under the [MIT License](LICENSE).
 <a id="中文"></a>
 # 绝对音准训练器（Absolute Pitch Trainer）
 
-一个 Windows 桌面应用，用于培养绝对音准。播放单音/和弦/音程/旋律，用户通过语音或文字反馈听到的音高，程序自动判断对错，并给出即时反馈与历史统计。
+简介：这是一个用于培养绝对音准的 Windows 桌面应用。<br>使用方式：播放单音/和弦/音程/旋律，用户通过语音或文字反馈听到的音高，程序自动判断对错，并给出即时反馈与历史统计。<br>项目灵感来源：我在练习乐器时，为了确保自己的音准无误，需要时刻盯着调音器，这会使我的注意力分散，无法全心全意放在对技术的磨练之中。因此我需要训练自己的耳朵，使它能够灵敏地听出来我演奏的每个音的音准是否正确。因此我想到了开发一个绝对音准训练程序来提升自己的音高识别能力。<br>注：该项目为使用AI辅助进行编程学习的项目。
 
 ## 功能特性
 
-- **7 种训练模式**
-  - 简单：标准音 A + C 大调自然音 1–7（无升降号）
-  - 普通：标准音 A + 全部 12 音单音
-  - 困难：标准音 A + 自然音内和弦（三/五/七/通用可选）
-  - 地狱：无标准音 + 全半音和弦
-  - 地狱单音：无标准音 + 全部 12 音单音
+- **共7 种训练模式**
+  - 简单：C 大调自然音 C–B（无半音）
+  - 普通：全部 12 音单音
+  - 困难：自然音和弦（三/五/七/通用可选）
+  - 地狱：不给标准音 + 全半音和弦
+  - 地狱单音：不给标准音 + 全部 12 音单音
   - 音程：听两个音，判断音程
   - 旋律：听短旋律，写出音高序列
-- **智能训练**
+- **人性化功能**
   - 错题本：自动记录错题，可一键“只练错题”
   - 弱项分析：统计薄弱音高/和弦性质
   - 渐进难度：前一半简单、后一半加难
@@ -204,8 +188,6 @@ This project is licensed under the [MIT License](LICENSE).
   - 完全离线：Windows SAPI 语音输出 + Vosk 本地识别（中/英小模型）
   - 语音输入支持“■ 停止录音”手动结束
   - 模型缺失时自动下载并显示进度
-- **界面**
-  - 黑/白极简苹果风，页面切换、数字滚动、图表生长、弹窗缩放等动画
 
 ## 环境要求
 
@@ -284,17 +266,6 @@ absolute-pitch-trainer/
 - 设置与历史数据保存在 `%APPDATA%\AbsolutePitchTrainer\`
 - 历史成绩按模式保留最近 100 次，更早数据自动删除
 - 模型保存在项目或 exe 旁的 `models\` 目录
-
-## 常见问题
-
-**Q：为什么简单模式没有升降号？**
-A：简单模式固定为 C 大调自然音 1–7，用于建立最基础的音高概念。
-
-**Q：为什么第一次语音输入很慢？**
-A：需要下载 Vosk 中/英小模型，约 80MB，下载完成后完全离线可用。
-
-**Q：没有声音怎么办？**
-A：程序优先使用 `sounddevice + numpy` 播放，失败时自动回退到 Windows `winsound`。请检查系统默认播放设备和音量。
 
 ## 参与贡献
 
