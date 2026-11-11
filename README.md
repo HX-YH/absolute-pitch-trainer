@@ -1,9 +1,172 @@
-# 绝对音准训练器（Absolute Pitch Trainer）
+# Absolute Pitch Trainer
 
 ![Platform](https://img.shields.io/badge/platform-Windows-0078D6)
 ![Python](https://img.shields.io/badge/python-3.13-3776AB)
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Offline](https://img.shields.io/badge/voice-offline-orange)
+
+**English** | [中文](#中文)
+
+This is a small Windows desktop app I built to practice absolute pitch, often called perfect pitch. It plays a note, a chord, an interval, or a short melody, and you tell it what you heard by typing or speaking. The app checks your answer and gives you instant feedback.
+
+I'm still learning programming, so this is also a learning project. I tried to keep the code readable and the interface simple. It's not a commercial product, and there are probably still a few rough edges, but it does what I need it to do.
+
+## What it can do
+
+**Seven practice modes**
+
+- Easy: a reference A plus natural notes from the C major scale (1–7, no sharps or flats)
+- Normal: a reference A plus all 12 notes
+- Hard: a reference A plus chords built from natural notes (triads, power chords, seventh chords, or all of them)
+- Hell: no reference note, chromatic chords
+- Hell single note: no reference note, all 12 notes
+- Interval: listen to two notes and name the interval
+- Melody: listen to a short melody and write down the notes
+
+**Smart practice**
+
+- Mistake notebook: wrong answers are saved automatically, and you can practice only those questions
+- Weak-spot stats: see which notes or chord types you miss most
+- Progressive difficulty: the first half is easier, the second half is harder
+- Strict mode: when a chord is played in an inversion, you also need to name the inversion
+
+**Make it yours**
+
+- Reference pitch: 438 / 440 / 442 / 443 Hz
+- Key: all 12 keys
+- Note range and chord root range
+- Volume and tone (sine, piano, soft)
+
+**How you answer**
+
+- Single notes: text box, note buttons with octave selection, or voice
+- Chords: standard symbols, Chinese names, or English spellings
+- Intervals: "perfect fifth", "P5", "major third", and so on
+- Melody: notes separated by spaces or commas, like `C4 E4 G4`
+
+**Feedback and progress**
+
+- Instant right/wrong feedback, with the correct answer shown after a mistake
+- After a wrong answer, you can play what you entered, and the app also plays the correct pitch
+- Accuracy history keeps the latest 100 sessions for each mode
+- Bar chart, trend line, today's practice count, and streak days
+
+**Voice**
+
+- Fully offline: Windows SAPI for speech output and Vosk for speech recognition (small English and Chinese models)
+- You can stop recording manually with the "■ Stop recording" button
+- If the models are missing, the app downloads them and shows progress
+
+**Interface**
+
+- Simple black-and-white look inspired by Apple's minimal style
+- Page transitions, number rolling, chart animation, and popup scaling
+
+## Requirements
+
+- Windows 10 or 11
+- Python 3.13 or newer
+- A microphone and speakers (optional, but needed for voice input and audio playback)
+
+## Getting started
+
+```bat
+py -m venv venv
+call venv\Scripts\activate.bat
+pip install -r requirements.txt
+python -m trainer.download_models
+python main.py
+```
+
+Or just run:
+
+```bat
+run.bat
+```
+
+> If `models/` is empty when you first use voice input, the app will download the small English and Chinese Vosk models automatically.
+
+## Build the exe
+
+```bat
+build.bat
+```
+
+The output goes here:
+
+```text
+dist\AbsolutePitchTrainer\AbsolutePitchTrainer.exe
+```
+
+The models are placed in a `models\` folder next to the exe. `build.bat` will try to download and copy them for you.
+
+## Voice input tips
+
+- Click "🎤 Voice input" to start recording. While recording, the button changes to "■ Stop recording". You can stop it yourself, or just stop speaking and let the app finish automatically.
+- For single notes, you can say things like `C4`, `C sharp four`, `升C4`, or `do#4`.
+- For chords, you can say things like `C major`, `C major seventh`, `C 大三和弦`, or `C 属七`.
+- Speech recognition uses the small Vosk models (English and zh-CN) and works fully offline.
+
+## Project layout
+
+```text
+absolute-pitch-trainer/
+├─ main.py                    entry point
+├─ run.bat                    run from source
+├─ build.bat                  build the exe
+├─ requirements.txt           dependencies
+├─ LICENSE
+├─ CHANGELOG.md
+├─ CONTRIBUTING.md
+├─ models/
+│  └─ README.md               notes about the model folder
+└─ trainer/
+   ├─ config.py               saves user settings
+   ├─ history.py              practice history
+   ├─ wrongbook.py            mistake notebook and weak-spot stats
+   ├─ music.py                music theory, question generation, answer parsing
+   ├─ audio.py                audio synthesis, playback, recording, TTS, Vosk
+   ├─ download_models.py      model downloader
+   └─ ui/
+      ├─ app.py               main window and page navigation
+      ├─ theme.py             black-and-white theme
+      ├─ widgets.py           shared widgets and animations
+      └─ pages/               home, training, results, history, mistake notebook
+```
+
+## Where your data lives
+
+- Settings and practice data are stored in `%APPDATA%\AbsolutePitchTrainer\`
+- Each mode keeps the latest 100 practice sessions, and older ones are removed automatically
+- Models live in the `models\` folder next to the project or the exe
+
+## FAQ
+
+**Why are there no sharps or flats in Easy mode?**
+Easy mode stays in C major and uses only the natural notes 1–7. It's meant to be the simplest starting point.
+
+**Why is the first voice input so slow?**
+The app needs to download the small English and Chinese Vosk models, about 80 MB in total. After that, voice input works offline.
+
+**What if I hear no sound?**
+The app tries `sounddevice + numpy` first and falls back to Windows `winsound` if needed. Check your default playback device and system volume.
+
+## Contributing
+
+Issues and pull requests are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+<a id="中文"></a>
+# 绝对音准训练器（Absolute Pitch Trainer）
 
 一个 Windows 桌面应用，用于培养绝对音准。播放单音/和弦/音程/旋律，用户通过语音或文字反馈听到的音高，程序自动判断对错，并给出即时反馈与历史统计。
 
