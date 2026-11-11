@@ -23,14 +23,14 @@ It plays a note, a chord, an interval, or a short melody, and you tell it what y
 - Interval: listen to two notes and name the interval
 - Melody: listen to a short melody and write down the notes
 
-**Human-friendly features**
+**User-friendly features**
 
 - Mistake notebook: wrong answers are saved automatically, and you can practice only those questions
 - Weak-spot stats: see which notes or chord types you miss most
 - Progressive difficulty: the first half is easier, the second half is harder
 - Strict mode: when a chord is played in an inversion, you also need to name the inversion
 
-**Make it yours**
+**Custom settings**
 
 - Reference pitch: 438 / 440 / 442 / 443 Hz
 - Key: all 12 keys
@@ -47,21 +47,14 @@ It plays a note, a chord, an interval, or a short melody, and you tell it what y
 **Feedback and progress**
 
 - Instant right/wrong feedback, with the correct answer shown after a mistake
-- After a wrong answer, you can play what you entered, and the app also plays the correct pitch
+- After a wrong answer, you can play what you entered to help you make comparisons
 - Accuracy history keeps the latest 100 sessions for each mode
 - Bar chart, trend line, today's practice count, and streak days
-
-**Voice**
-
-- Fully offline: Windows SAPI for speech output and Vosk for speech recognition (small English and Chinese models)
-- You can stop recording manually with the "■ Stop recording" button
-- If the models are missing, the app downloads them and shows progress
 
 ## Requirements
 
 - Windows 10 or 11
 - Python 3.13 or newer
-- A microphone and speakers (optional, but needed for voice input and audio playback)
 
 ## Getting started
 
@@ -94,13 +87,6 @@ dist\AbsolutePitchTrainer\AbsolutePitchTrainer.exe
 ```
 
 The models are placed in a `models\` folder next to the exe. `build.bat` will try to download and copy them for you.
-
-## Voice input tips
-
-- Click "🎤 Voice input" to start recording. While recording, the button changes to "■ Stop recording". You can stop it yourself, or just stop speaking and let the app finish automatically.
-- For single notes, you can say things like `C4`, `C sharp four`, `升C4`, or `do#4`.
-- For chords, you can say things like `C major`, `C major seventh`, `C 大三和弦`, or `C 属七`.
-- Speech recognition uses the small Vosk models (English and zh-CN) and works fully offline.
 
 ## Project layout
 
@@ -181,19 +167,14 @@ This project is licensed under the [MIT License](LICENSE).
   - 旋律：`C4 E4 G4` 空格/逗号分隔
 - **反馈与统计**
   - 每题即时对错，答错显示正确答案
-  - 答错后播放所填答案音高，并自动补播正确音高
+  - 答错后可播放所填答案音高
   - 历史正确率按模式保存最近 100 次
   - 柱状图 + 趋势折线、今日次数、连续打卡天数
-- **语音能力**
-  - 完全离线：Windows SAPI 语音输出 + Vosk 本地识别（中/英小模型）
-  - 语音输入支持“■ 停止录音”手动结束
-  - 模型缺失时自动下载并显示进度
 
 ## 环境要求
 
 - Windows 10/11
 - Python 3.13+
-- 麦克风与扬声器（语音输入/音频播放可选）
 
 ## 快速开始
 
@@ -226,13 +207,6 @@ dist\AbsolutePitchTrainer\AbsolutePitchTrainer.exe
 ```
 
 模型会放在 exe 同目录的 `models\` 下；`build.bat` 会尝试自动下载并复制。
-
-## 语音输入说明
-
-- 点击“🎤 语音输入”后开始录音；录音中按钮变为“■ 停止录音”，可手动点击结束，也可静音自动结束。
-- 单音可以说：`C4`、`C sharp four`、`升C4`、`do#4` 等。
-- 和弦可以说：`C major`、`C major seventh`、`C 大三和弦`、`C 属七` 等。
-- 识别引擎为 Vosk 小模型（en + zh-CN），完全离线。
 
 ## 项目结构
 
