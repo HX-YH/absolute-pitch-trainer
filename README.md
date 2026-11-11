@@ -7,9 +7,9 @@
 
 **English** | [中文](#中文)
 
-Hi! This is a small Windows desktop app I built to practice absolute pitch. I play an instrument, and when I practice I often find myself checking a tuner to make sure I'm in tune. That takes my attention away from actually playing. I wanted to train my ears, so I could hear whether a note is in tune without staring at a screen. That's where this project came from.
+This is a small Windows desktop app I built to practice absolute pitch. Here is where this project came from: I play cello, and when I practice I often find myself checking a tuner to make sure I'm in tune, which takes my attention away from actually playing. I wanted to train my ears, so I could hear whether a note is in tune without staring at the screen.
 
-It plays a note, a chord, an interval, or a short melody, and you tell it what you heard by typing or speaking. The app checks your answer and gives you instant feedback. It's not a commercial product. It's a learning project, and I used AI as a coding assistant along the way. I tried to keep the code readable and the interface simple.
+It plays a note, a chord, an interval, or a short melody, and you tell it what you heard by typing or speaking. The app checks your answer and gives you instant feedback. It's not a commercial product but a learning project, and I used AI for assistant and learn through the process. I tried to keep the code readable and the interface simple.
 
 ## What it can do
 
